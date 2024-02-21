@@ -1,0 +1,11 @@
+import React from 'react'
+
+const NotFound = () => {
+  return (
+    <div className="h-screen w-full flex items-center justify-center">
+      <p className='font-extrabold text-9xl'>404 : NOT FOUND</p>
+    </div>
+  )
+}
+
+export default NotFound

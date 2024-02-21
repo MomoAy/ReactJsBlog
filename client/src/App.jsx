@@ -1,9 +1,12 @@
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Article from "./Pages/Article";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import ArticleList from "./Pages/ArticleList";
 import NavBar from "./Components/NavBar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NotFound from "./Pages/NotFound";
+import Article from "./Pages/Article";
+import About from "./Pages/About";
+import Home from "./Pages/Home";
+
 function App() {
   return (
     <Router>
@@ -14,6 +17,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/article/:name" element={<Article />} />
           <Route path="/articleList" element={<ArticleList />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
