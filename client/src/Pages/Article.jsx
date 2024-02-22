@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import articleContent from "./Article_Content";
 import Articles from "../Components/Articles";
@@ -7,6 +8,16 @@ import NotFound from "./NotFound";
 const Article = () => {
   const { name } = useParams();
   const article = articleContent.find((article) => article.name === name);
+  const [articleInfo, setArticleInfo] = useState({ comments: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(`/api/articles/${name}`);
+      const body = await result.json();
+      setArticleInfo(body);
+    };
+    fetchData();
+  }, [name]);
 
   if (!article) return <NotFound />;
 

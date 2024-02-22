@@ -4,7 +4,8 @@ const { MongoClient } = require('mongodb');
 const PORT = 8000;
 
 
-//////Sans persistance de données 
+
+//////Sans persistance de donnees
 // const articlesInfo = {
 //   "learn-react": {
 //     comments: [],

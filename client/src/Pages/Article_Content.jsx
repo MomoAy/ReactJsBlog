@@ -1,6 +1,6 @@
 const articles = [
   {
-    name: "article1",
+    name: "learn-react",
     title: "Les avancées récentes dans la technologie",
     thumbnail:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -12,7 +12,7 @@ const articles = [
     ],
   },
   {
-    name: "article2",
+    name: "learn-node",
     title: "L'avenir de la robotique",
     thumbnail:
       "https://www.wel-com.fr/wp-content/uploads/2023/05/580401-1-300x300.jpg.webp",
@@ -24,7 +24,7 @@ const articles = [
     ],
   },
   {
-    name: "article3",
+    name: "learn-flask",
     title: "Les défis éthiques de l'intelligence artificielle",
     thumbnail:
       "https://www.wel-com.fr/wp-content/uploads/2024/01/583971245-1-300x300.webp",
