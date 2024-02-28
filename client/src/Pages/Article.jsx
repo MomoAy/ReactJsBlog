@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import CommentList from "../Components/comment_list";
 import articleContent from "./Article_Content";
 import Articles from "../Components/Articles";
 import NotFound from "./NotFound";
@@ -13,7 +14,7 @@ const Article = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetch(`/api/articles/${name}`);
-      const body = await result.json();
+      const body = await result.data;
       setArticleInfo(body);
     };
     fetchData();
@@ -33,6 +34,7 @@ const Article = () => {
           {paragraph}
         </p>
       ))}
+      <CommentList info={articleInfo.comments} />
       <h1 className="sm:text-2xl text-xl font-bold my-4">Other Articles</h1>
       <div className="flex flex-wrap -m-4">
         <Articles articles={otherArticles} />
