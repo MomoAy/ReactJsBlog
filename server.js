@@ -2,6 +2,15 @@ const express = require('express');
 const app = express();
 const { MongoClient } = require('mongodb');
 const PORT = 8000;
+const dotenv = require('dotenv');
+dotenv.config();
+
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 
 
 
@@ -32,7 +41,7 @@ app.use(express.json({ extend: false }));
 
 const withDB = async (operation, res) => {
   try {
-    const client = await MongoClient.connect("mongodb://localhost:27017");
+    const client = await MongoClient.connect(process.env.MONGO_URI);
     const db = client.db("mernblog");
     await operation(db)
     client.close();
@@ -47,7 +56,7 @@ app.get("/api/articles/:name", async (req, res) => {
   withDB(async (db) => {
     const articleName = req.params.name;
     const articleInfo = await db.collection("articles").findOne({ "name": articleName });
-    return res.status(200).send(articleInfo.json());
+    return res.status(200).json(articleInfo);
   }, res);
 
 });
